@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Devmedia.Estudo.LibraryFrameworkSample</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Devmedia.Estudo.Library.FrameworkSample.Library\Devmedia.Estudo.LibraryFrameworkSample.Library.csproj" />
+  </ItemGroup>
+
+</Project>
