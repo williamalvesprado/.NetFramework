@@ -16,59 +16,123 @@ namespace System.XML.Example
 {
     public partial class Form3 : Form
     {
-        string arquivo = @"C:\Aulas\NETFwk\Agenda.xml";
-        XmlDocument xmlDoc = new XmlDocument();
-        /*XElement xDoc;*/
-        /*Contatos contatos;*/
-
-
-
+        Contatos contatos = null;
+        SContatos contato = new SContatos();
         public Form3()
         {
             InitializeComponent();
-            if (!File.Exists(arquivo))
-            {
-                XmlNode nodeRoot = xmlDoc.CreateElement("Contatos");
-                xmlDoc.AppendChild(nodeRoot);
-                xmlDoc.Save(arquivo);
-            }
-            ReadAgenda();
+
         }
-
-        private void ReadAgenda()
+        private void BindListBox()
         {
-            //Deserializer
-            XElement xDoc = XElement.Load(arquivo);
-            Contatos contatos = Serializer.Deserialize<Contatos>(xDoc);
-            lblContatos.Text = string.Empty;
-
-            foreach (Contato c in contatos.Contato)
-            {
-                lblContatos.Text += "Nome: " + c.Nome + "\nTelefone: " + c.Telefone + "\n\n";
-            }
-
-            //Serializer
-            XElement xmlReturn = Serializer.Serialize<Contatos>(contatos);
-
+            
+            contato = contato.Read();
+            listBox1.DataSource = contato.contatos;
+            listBox1.DisplayMember = "Nome";
+            listBox1.ValueMember = "Id";
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
-
+            this.BindListBox();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
             Contato c = new Contato();
+            c.Id = this.NextId();
             c.Nome = txtNome.Text;
             c.Telefone = txtTelefone.Text;
-            txtNome.Text = "";
-            txtTelefone.Text = "";
+
+            contatos.Contato.Add(c);
+
+            contato.Write(contatos);
+
+            this.BindListBox();
+
+        }
+
+        private int NextId()
+        {
+            int next = contatos.Contato[contatos.Contato.Count -1 ].Id +1;
+            return next;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            if (listBox1.SelectedIndex > -1)
+            {
+                Contato c = contatos.Contato.Find(p => p.Id == (int)listBox1.SelectedValue);
+                contatos.Contato.Remove(c);
+                SContatos.Write(contatos);
+                this.BindListBox();
+            }
+            else
+            {
+                MessageBox.Show("Nenhum item foi selecionado");
+            }
+
+
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            Contato c = contatos.Contato.Find(p => p.Id == (int)listBox1.SelectedValue);
+            MessageBox.Show("Nome: " + c.Nome + "\n" + "Telefone: " + c.Telefone);
+
+        }
+
+        private void btnSelecionar_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex > -1)
+            {
+                pnlAlterar.Visible = true;
+                pnlIncluir.Visible = false;
+
+                Contato c = contatos.Contato.Find(p => p.Id == (int)listBox1.SelectedValue);
+                txtNome.Text = c.Nome;
+                txtTelefone.Text = c.Telefone;
+                lblId.Text = c.Id.ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("Nenhum item foi selecionado");
+            }
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            int Id = int.Parse(lblId.Text);
+            contatos.Contato.Find(p => p.Id == Id).Nome = txtNome.Text;
+            contatos.Contato.Find(p => p.Id == Id).Telefone = txtTelefone.Text;
+            SContatos.Write(contatos);
+
+            this.BindListBox();
+
+            this.btnCancelar_Click(null, null);
+
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+            pnlAlterar.Visible = false;
+            pnlIncluir.Visible = true;
+
+            txtNome.Text = txtTelefone.Text = lblId.Text = string.Empty;
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
