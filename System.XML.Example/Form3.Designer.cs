@@ -42,6 +42,8 @@ namespace System.XML.Example
             this.lblId = new System.Windows.Forms.Label();
             this.pnlAlterar = new System.Windows.Forms.Panel();
             this.pnlIncluir = new System.Windows.Forms.Panel();
+            this.txtObs = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnlAlterar.SuspendLayout();
             this.pnlIncluir.SuspendLayout();
             this.SuspendLayout();
@@ -133,9 +135,9 @@ namespace System.XML.Example
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(341, 4);
+            this.listBox1.Location = new System.Drawing.Point(402, 4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(482, 355);
+            this.listBox1.Size = new System.Drawing.Size(421, 355);
             this.listBox1.TabIndex = 9;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
@@ -152,7 +154,7 @@ namespace System.XML.Example
             // 
             this.pnlAlterar.Controls.Add(this.btnCancelar);
             this.pnlAlterar.Controls.Add(this.btnAlterar);
-            this.pnlAlterar.Location = new System.Drawing.Point(28, 189);
+            this.pnlAlterar.Location = new System.Drawing.Point(30, 230);
             this.pnlAlterar.Name = "pnlAlterar";
             this.pnlAlterar.Size = new System.Drawing.Size(200, 53);
             this.pnlAlterar.TabIndex = 11;
@@ -161,14 +163,33 @@ namespace System.XML.Example
             // pnlIncluir
             // 
             this.pnlIncluir.Controls.Add(this.btnSalvar);
-            this.pnlIncluir.Location = new System.Drawing.Point(28, 135);
+            this.pnlIncluir.Location = new System.Drawing.Point(30, 230);
             this.pnlIncluir.Name = "pnlIncluir";
-            this.pnlIncluir.Size = new System.Drawing.Size(200, 48);
+            this.pnlIncluir.Size = new System.Drawing.Size(200, 53);
             this.pnlIncluir.TabIndex = 12;
+            // 
+            // txtObs
+            // 
+            this.txtObs.Location = new System.Drawing.Point(30, 155);
+            this.txtObs.Multiline = true;
+            this.txtObs.Name = "txtObs";
+            this.txtObs.Size = new System.Drawing.Size(305, 69);
+            this.txtObs.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(29, 139);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Observaçôes";
             // 
             // Form3
             // 
-            this.ClientSize = new System.Drawing.Size(863, 485);
+            this.ClientSize = new System.Drawing.Size(863, 594);
+            this.Controls.Add(this.txtObs);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pnlIncluir);
             this.Controls.Add(this.pnlAlterar);
             this.Controls.Add(this.lblId);
@@ -202,6 +223,8 @@ namespace System.XML.Example
         private Windows.Forms.Label lblId;
         private Windows.Forms.Panel pnlAlterar;
         private Windows.Forms.Panel pnlIncluir;
+        private Windows.Forms.TextBox txtObs;
+        private Windows.Forms.Label label3;
 
         #endregion
 

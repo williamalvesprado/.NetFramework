@@ -44,6 +44,7 @@ namespace System.XML.Example
             c.Id = this.NextId();
             c.Nome = txtNome.Text;
             c.Telefone = txtTelefone.Text;
+            c.Obs = txtObs.Text;
 
             contatos.Contato.Add(c);
 
@@ -85,7 +86,7 @@ namespace System.XML.Example
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Contato c = contatos.Contato.Find(p => p.Id == (int)listBox1.SelectedValue);
-            MessageBox.Show("Nome: " + c.Nome + "\n" + "Telefone: " + c.Telefone);
+            MessageBox.Show("Nome: " + c.Nome + "\n" + "Telefone: " + c.Telefone +"\n" +  "Obs: " + c.Obs);
 
         }
 
@@ -100,6 +101,7 @@ namespace System.XML.Example
                 txtNome.Text = c.Nome;
                 txtTelefone.Text = c.Telefone;
                 lblId.Text = c.Id.ToString();
+                txtObs.Text = c.Obs;
 
             }
             else
@@ -111,8 +113,10 @@ namespace System.XML.Example
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             int Id = int.Parse(lblId.Text);
-            contatos.Contato.Find(p => p.Id == Id).Nome = txtNome.Text;
-            contatos.Contato.Find(p => p.Id == Id).Telefone = txtTelefone.Text;
+            Contato c = contatos.Contato.Find(p => p.Id == Id);
+            c.Nome = txtNome.Text;
+            c.Telefone = txtTelefone.Text;
+            c.Obs = txtObs.Text;
             contato.Write(contatos);
 
             this.BindListBox();
@@ -126,7 +130,7 @@ namespace System.XML.Example
             pnlAlterar.Visible = false;
             pnlIncluir.Visible = true;
 
-            txtNome.Text = txtTelefone.Text = lblId.Text = string.Empty;
+            txtNome.Text = txtTelefone.Text = txtObs.Text = lblId.Text = string.Empty;
 
         }
 

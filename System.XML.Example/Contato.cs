@@ -12,10 +12,16 @@ namespace System.XML.Example
     {
         [XmlElement("Id")]
         public int Id { get; set; } 
+
         [XmlElement("Nome")]
         public string Nome { get; set; }
+
         [XmlElement("Telefone")]
         public string Telefone { get; set; }
+
+
+        [XmlElement("Obs")]
+        public string Obs { get; set; }
 
     }
 }
