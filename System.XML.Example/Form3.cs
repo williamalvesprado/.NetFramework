@@ -25,9 +25,9 @@ namespace System.XML.Example
         }
         private void BindListBox()
         {
-            
-            contato = contato.Read();
-            listBox1.DataSource = contato.contatos;
+
+            contatos = contato.Read();
+            listBox1.DataSource = contatos.Contato;
             listBox1.DisplayMember = "Nome";
             listBox1.ValueMember = "Id";
         }
@@ -55,7 +55,12 @@ namespace System.XML.Example
 
         private int NextId()
         {
-            int next = contatos.Contato[contatos.Contato.Count -1 ].Id +1;
+            int next = 0;
+            if (contatos.Contato.Count > 0)
+
+            {
+                next = contatos.Contato[contatos.Contato.Count -1 ].Id + 1;
+            }
             return next;
         }
 
@@ -66,7 +71,7 @@ namespace System.XML.Example
             {
                 Contato c = contatos.Contato.Find(p => p.Id == (int)listBox1.SelectedValue);
                 contatos.Contato.Remove(c);
-                SContatos.Write(contatos);
+                contato.Write(contatos);
                 this.BindListBox();
             }
             else
@@ -77,7 +82,7 @@ namespace System.XML.Example
 
         }
 
-        private void listBox1_DoubleClick(object sender, EventArgs e)
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Contato c = contatos.Contato.Find(p => p.Id == (int)listBox1.SelectedValue);
             MessageBox.Show("Nome: " + c.Nome + "\n" + "Telefone: " + c.Telefone);
@@ -108,7 +113,7 @@ namespace System.XML.Example
             int Id = int.Parse(lblId.Text);
             contatos.Contato.Find(p => p.Id == Id).Nome = txtNome.Text;
             contatos.Contato.Find(p => p.Id == Id).Telefone = txtTelefone.Text;
-            SContatos.Write(contatos);
+            contato.Write(contatos);
 
             this.BindListBox();
 
@@ -134,5 +139,14 @@ namespace System.XML.Example
         {
 
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
     }
 }
