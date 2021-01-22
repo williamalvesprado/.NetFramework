@@ -98,7 +98,7 @@ namespace System.XML.Example
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(727, 376);
+            this.btnDelete.Location = new System.Drawing.Point(514, 358);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 5;
@@ -118,7 +118,7 @@ namespace System.XML.Example
             // 
             // btnSelecionar
             // 
-            this.btnSelecionar.Location = new System.Drawing.Point(620, 376);
+            this.btnSelecionar.Location = new System.Drawing.Point(402, 358);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(75, 23);
             this.btnSelecionar.TabIndex = 7;
@@ -141,7 +141,7 @@ namespace System.XML.Example
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(402, 4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(421, 355);
+            this.listBox1.Size = new System.Drawing.Size(187, 355);
             this.listBox1.TabIndex = 9;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
@@ -225,7 +225,7 @@ namespace System.XML.Example
             // 
             // Form3
             // 
-            this.ClientSize = new System.Drawing.Size(863, 594);
+            this.ClientSize = new System.Drawing.Size(688, 484);
             this.Controls.Add(this.txtFoneResidencial);
             this.Controls.Add(this.txtFoneComercial);
             this.Controls.Add(this.label4);
@@ -242,6 +242,7 @@ namespace System.XML.Example
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.Desktop;
             this.Name = "Form3";
             this.Text = "Agenda";
             this.Load += new System.EventHandler(this.Form3_Load);

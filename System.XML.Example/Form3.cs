@@ -101,20 +101,25 @@ namespace System.XML.Example
                 pnlIncluir.Visible = false;
 
                 Contato c = contatos.Contato.Find(p => p.Id == (int)listBox1.SelectedValue);
+                
                 txtNome.Text = c.Nome;
+
+                if (c.Telefone.Count > 0)
+                { 
 
                 txtCelular.Text = c.Telefone.ElementAt(0);
                 txtFoneComercial.Text = c.Telefone.ElementAt(1);
                 txtFoneResidencial.Text = c.Telefone.ElementAt(2);
 
+                }
+
                 lblId.Text = c.Id.ToString();
                 txtObs.Text = c.Obs;
 
-            }
-            else
-            {
+            } else
+                {
                 MessageBox.Show("Nenhum item foi selecionado");
-            }
+                }
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
