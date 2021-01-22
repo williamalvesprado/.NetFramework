@@ -16,8 +16,8 @@ namespace System.XML.Example
         [XmlElement("Nome")]
         public string Nome { get; set; }
 
-        [XmlElement("Telefone")]
-        public string Telefone { get; set; }
+        [XmlArray("Telefone")]
+        public List<string> Telefone { get; set; }
 
 
         [XmlElement("Obs")]

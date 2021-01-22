@@ -32,7 +32,7 @@ namespace System.XML.Example
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtTelefone = new System.Windows.Forms.TextBox();
+            this.txtCelular = new System.Windows.Forms.TextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
@@ -44,6 +44,10 @@ namespace System.XML.Example
             this.pnlIncluir = new System.Windows.Forms.Panel();
             this.txtObs = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtFoneResidencial = new System.Windows.Forms.TextBox();
+            this.txtFoneComercial = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.pnlAlterar.SuspendLayout();
             this.pnlIncluir.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +55,7 @@ namespace System.XML.Example
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 28);
+            this.label1.Location = new System.Drawing.Point(25, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
@@ -60,27 +64,27 @@ namespace System.XML.Example
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 86);
+            this.label2.Location = new System.Drawing.Point(27, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Telefone";
+            this.label2.Text = "Celular";
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(28, 44);
+            this.txtNome.Location = new System.Drawing.Point(28, 23);
             this.txtNome.Multiline = true;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(110, 27);
             this.txtNome.TabIndex = 2;
             // 
-            // txtTelefone
+            // txtCelular
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(28, 102);
-            this.txtTelefone.Multiline = true;
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(110, 27);
-            this.txtTelefone.TabIndex = 3;
+            this.txtCelular.Location = new System.Drawing.Point(28, 81);
+            this.txtCelular.Multiline = true;
+            this.txtCelular.Name = "txtCelular";
+            this.txtCelular.Size = new System.Drawing.Size(110, 27);
+            this.txtCelular.TabIndex = 3;
             // 
             // btnSalvar
             // 
@@ -154,7 +158,7 @@ namespace System.XML.Example
             // 
             this.pnlAlterar.Controls.Add(this.btnCancelar);
             this.pnlAlterar.Controls.Add(this.btnAlterar);
-            this.pnlAlterar.Location = new System.Drawing.Point(30, 230);
+            this.pnlAlterar.Location = new System.Drawing.Point(32, 329);
             this.pnlAlterar.Name = "pnlAlterar";
             this.pnlAlterar.Size = new System.Drawing.Size(200, 53);
             this.pnlAlterar.TabIndex = 11;
@@ -163,14 +167,14 @@ namespace System.XML.Example
             // pnlIncluir
             // 
             this.pnlIncluir.Controls.Add(this.btnSalvar);
-            this.pnlIncluir.Location = new System.Drawing.Point(30, 230);
+            this.pnlIncluir.Location = new System.Drawing.Point(32, 328);
             this.pnlIncluir.Name = "pnlIncluir";
             this.pnlIncluir.Size = new System.Drawing.Size(200, 53);
             this.pnlIncluir.TabIndex = 12;
             // 
             // txtObs
             // 
-            this.txtObs.Location = new System.Drawing.Point(30, 155);
+            this.txtObs.Location = new System.Drawing.Point(32, 252);
             this.txtObs.Multiline = true;
             this.txtObs.Name = "txtObs";
             this.txtObs.Size = new System.Drawing.Size(305, 69);
@@ -179,15 +183,53 @@ namespace System.XML.Example
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 139);
+            this.label3.Location = new System.Drawing.Point(31, 236);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 13;
             this.label3.Text = "Observaçôes";
             // 
+            // txtFoneResidencial
+            // 
+            this.txtFoneResidencial.Location = new System.Drawing.Point(30, 187);
+            this.txtFoneResidencial.Multiline = true;
+            this.txtFoneResidencial.Name = "txtFoneResidencial";
+            this.txtFoneResidencial.Size = new System.Drawing.Size(110, 27);
+            this.txtFoneResidencial.TabIndex = 18;
+            // 
+            // txtFoneComercial
+            // 
+            this.txtFoneComercial.Location = new System.Drawing.Point(30, 129);
+            this.txtFoneComercial.Multiline = true;
+            this.txtFoneComercial.Name = "txtFoneComercial";
+            this.txtFoneComercial.Size = new System.Drawing.Size(110, 27);
+            this.txtFoneComercial.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(29, 171);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Fone Residêncial";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 113);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Fone Comercial";
+            // 
             // Form3
             // 
             this.ClientSize = new System.Drawing.Size(863, 594);
+            this.Controls.Add(this.txtFoneResidencial);
+            this.Controls.Add(this.txtFoneComercial);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtObs);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pnlIncluir);
@@ -196,7 +238,7 @@ namespace System.XML.Example
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnSelecionar);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.txtTelefone);
+            this.Controls.Add(this.txtCelular);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -213,7 +255,7 @@ namespace System.XML.Example
         private Windows.Forms.Label label1;
         private Windows.Forms.Label label2;
         private Windows.Forms.TextBox txtNome;
-        private Windows.Forms.TextBox txtTelefone;
+        private Windows.Forms.TextBox txtCelular;
         private Windows.Forms.Button btnSalvar;
         private Windows.Forms.Button btnDelete;
         private Windows.Forms.Button btnAlterar;
@@ -225,6 +267,10 @@ namespace System.XML.Example
         private Windows.Forms.Panel pnlIncluir;
         private Windows.Forms.TextBox txtObs;
         private Windows.Forms.Label label3;
+        private Windows.Forms.TextBox txtFoneResidencial;
+        private Windows.Forms.TextBox txtFoneComercial;
+        private Windows.Forms.Label label4;
+        private Windows.Forms.Label label5;
 
         #endregion
 
